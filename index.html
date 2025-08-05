@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Music Player</title>
+    <link rel="icon" href="Resourse/image/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Poppins:wght@400;600&family=Noto+Sans:wght@400;700&family=Noto+Sans+Arabic:wght@400;700&family=Noto+Sans+Hebrew:wght@400;700&family=Noto+Sans+Devanagari:wght@400;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <aside>
+        <div id="aside-header">
+            <h1>All Songs</h1>
+            <div id="myPlushSVG">
+                <img src="Resourse/image/plush.svg" alt="plush" class="pointer" id="plush">
+                <img src="Resourse/image/cross.svg" alt="cross" class="pointer" id="cross">
+            </div>
+        </div>
+        <div id="aside-content">
+            <ul>
+
+            </ul>
+        </div>
+        <div id="aside-footer">
+            <div>
+                <p>SAYAN KUMAR DAS &copy; All Rights Reserved.</p>
+            </div>
+        </div>
+    </aside>
+    <main>
+        <div id="main-header">
+            <div id="hambarger">
+                <img src="Resourse/image/hambarger.svg" alt="">
+            </div>
+            <h1>SAYAN's Music Player</h1>
+        </div>
+        <section id="section1">
+            <div class="main-heading-text">
+                <h1>Popular albums</h1>
+                <img src="Resourse/image/plush.svg" alt="">
+            </div>
+            <div class="card-container">
+                
+            </div>
+        </section>
+        <section id="section2">
+            <div class="main-heading-text">
+                <h1>Popular artists</h1>
+                <img src="Resourse/image/plush.svg" alt="">
+            </div>
+            <div class="card-container">
+                
+            </div>
+        </section>
+        <section id="section3">
+            <div class="main-heading-text">
+                <h1>Trending songs</h1>
+                <img src="Resourse/image/plush.svg" alt="">
+            </div>
+            <div class="card-container">
+                <ul>
+                    
+                </ul>
+            </div>
+        </section>
+        <div id="main-footer">
+            <div>
+                <p>SAYAN KUMAR DAS &copy; All Rights Reserved.</p>
+            </div>
+        </div>
+        <div id="main-playlist-area">
+            <ul>
+
+            </ul>
+        </div>
+        <div id="music-player">
+            <div id="title-song-info">
+                <div id="song-info">
+                    <h1>Song Name</h1>
+                    <!-- <p>Artist Name</p> -->
+                </div>
+                <div id="arrowBtn">
+                    <img src="Resourse/image/upArrow.svg" alt="" id="upArrow">
+                    <img src="Resourse/image/downArrow.svg" alt="" id="downArrow">
+                </div>
+            </div>
+            <div id="sikbar">
+                <div id="sikbar-played"></div>
+                <div id="sikbar-circle"></div>
+            </div>
+            <div id="contolor">
+                <div id="timer">
+                    00:00 / 00:00
+                </div>
+                <div id="control-buttons">
+                    <img src="Resourse/image/previous.svg" alt="previous" id="previous" class="cbutton">
+                    <div id="play-pause">
+                        <img src="Resourse/image/play.svg" alt="play" class="cbutton" id="play-button">
+                        <!-- <img src="Resourse/image/pause.svg" alt="pause" class="cbutton" id="pause-button"> -->
+                    </div>
+                    <img src="Resourse/image/next.svg" alt="next" id="next" class="cbutton">
+                </div>
+                <div id="volume-control">
+                    <img src="Resourse/image/volume.svg" alt="volume" id="volume-icon">
+                    <input type="range" min="0" max="100" value="50" id="volume-slider">
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+
