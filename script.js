@@ -85,16 +85,16 @@ let playMusic = (track) => {
 
 async function weekPlayMusic(track) {
   let songsidd = document.querySelectorAll(`[data-track="${currentTrack}"] .aside-play-pause img`);
-    songsidd.forEach((e) => {
-      e.src = "Resourse/image/play.svg";
-    });
-    currentTrack = track;
-    currentAudio.src = track;
-    songsiddd = document.querySelectorAll(`[data-track="${currentTrack}"] .aside-song-title p`);
-    if (songsiddd) {
-      songInfo.innerHTML = `<h1>${songsiddd[0].innerText}</h1>`;
-    }
-    currentAudio.play();
+  songsidd.forEach((e) => {
+    e.src = "Resourse/image/play.svg";
+  });
+  currentTrack = track;
+  currentAudio.src = track;
+  songsiddd = document.querySelectorAll(`[data-track="${currentTrack}"] .aside-song-title p`);
+  if (songsiddd) {
+    songInfo.innerHTML = `<h1>${songsiddd[0].innerText}</h1>`;
+  }
+  currentAudio.play();
 }
 
 async function asideSongListing(arr, arr1) {
@@ -441,21 +441,21 @@ async function previousNext() {
 async function arrowBTNControl(params) {
   let mainsonglist = document.querySelector("#main-playlist-area")
   let arrowBtn = document.querySelector("#arrowBtn")
-  arrowBtn.addEventListener("click", () =>{
+  arrowBtn.addEventListener("click", () => {
     mainsonglist.classList.toggle("down-arrow");
     arrowBtn.classList.toggle("switch");
   })
 }
 
-function asideManage(){
+function asideManage() {
   let myAside = document.querySelector("aside");
   let myPlushSVG = document.querySelector("#myPlushSVG");
   let myHambarger = document.querySelector("#hambarger");
-  myPlushSVG.addEventListener("click", () =>{
+  myPlushSVG.addEventListener("click", () => {
     myAside.classList.toggle("hambargershow")
     myPlushSVG.classList.toggle("cross-plush");
   })
-  myHambarger.addEventListener("click", () =>{
+  myHambarger.addEventListener("click", () => {
     myAside.classList.toggle("hambargershow")
     myPlushSVG.classList.toggle("cross-plush");
   })
@@ -464,7 +464,26 @@ function asideManage(){
 
 
 async function main() {
-  songList = await fetchAudioFiles();
+  // songList = await fetchAudioFiles();
+
+  songList = ["Resourse/audio/Alan%20Walker%20-%20Alone%20(Sad%20Commute).mp3",
+    "Resourse/audio/Alan%20Walker%20-%20Darkside%20(Commute).mp3",
+    "Resourse/audio/Alan%20Walker%20-%20Faded%20(Commute).mp3",
+    "Resourse/audio/AURORA%20-%20Cure%20For%20Me%20(Relax).mp3",
+    "Resourse/audio/AURORA%20-%20Runaway%20(Relax%20Commute%20Feel_good).mp3",
+    "Resourse/audio/Billie%20Eilish%20-%20A%20SILENT%20VOICE%20(Sad).mp3",
+    "Resourse/audio/Billie%20Eilish%20-%20Ocean%20Eyes%20(Commute%20Feel_good%20Romantice).mp3",
+    "Resourse/audio/Coldplay%20-%20Hymn%20For%20The%20Weekend%20(Happy%20Feel_good).mp3",
+    "Resourse/audio/Coldplay%20-%20Paradise%20(Commute%20Happy%20Feel_good).mp3",
+    "Resourse/audio/Ember%20Island%20-%20Need%20You%20(Romantice).mp3",
+    "Resourse/audio/Ember%20Island%20-%20Umbrella%20(Romantice%20Feel_good).mp3",
+    "Resourse/audio/Natalie%20Taylor%20-%20Collapsed%20(Sad%20Relax).mp3",
+    "Resourse/audio/Natalie%20Taylor%20-%20Surrender%20(Happy%20Relax).mp3",
+    "Resourse/audio/Taylor%20Swift%20-%20Blank%20Space%20(Romantice%20Feel_good%20Happy%20Commute).mp3",
+    "Resourse/audio/Taylor%20Swift%20-%20Love%20Story%20(Romantice).mp3",
+    "Resourse/audio/Taylor%20Swift%20-%20Lover%20(Romantice).mp3"
+  ]
+
   asideCurrentSongList = songList;
   // console.log(songList);
   let mySongList = await songNames(songList);
@@ -488,7 +507,7 @@ async function main() {
   }
 
 
-  
+
   asideManage()
   arrowBTNControl();
   playSong();
