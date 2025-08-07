@@ -355,23 +355,33 @@ function formatSeconds(seconds) {
 
 async function timeUpdate() {
   let timer = document.querySelector("#timer");
+  let currentTimeDiv = document.querySelector("#currentTime")
+  let durationDiv = document.querySelector("#duration")
   currentAudio.load();
   currentAudio.addEventListener('loadedmetadata', () => {
     if (!isNaN(currentAudio.duration)) {
-      timer.innerHTML = `${formatSeconds(currentAudio.currentTime)} / ${formatSeconds(currentAudio.duration)}`;
+      // timer.innerHTML = `${formatSeconds(currentAudio.currentTime)} / ${formatSeconds(currentAudio.duration)}`;
+      currentTimeDiv.innerHTML = `${formatSeconds(currentAudio.currentTime)}`;
+      durationDiv.innerHTML = `${formatSeconds(currentAudio.duration)}`;
     } else {
-      timer.innerHTML = "00:00 / 00:00"
+      // timer.innerHTML = "00:00 / 00:00"
+      currentTimeDiv.innerHTML ="00:00"
+      durationDiv.innerHTML = "00:00"
     }
   });
   // console.log(currentAudio.duration != NaN);
   currentAudio.addEventListener("timeupdate", () => {
     if (!isNaN(currentAudio.duration)) {
-      timer.innerHTML = `${formatSeconds(currentAudio.currentTime)} / ${formatSeconds(currentAudio.duration)}`;
+      // timer.innerHTML = `${formatSeconds(currentAudio.currentTime)} / ${formatSeconds(currentAudio.duration)}`;
+      currentTimeDiv.innerHTML = `${formatSeconds(currentAudio.currentTime)}`;
+      durationDiv.innerHTML = `${formatSeconds(currentAudio.duration)}`;
       let x = (currentAudio.currentTime / currentAudio.duration) * 100;
       sikBarCircle.style.left = x + "%";
       sikBarPlayed.style.width = x + "%";
     } else {
-      timer.innerHTML = "00:00 / 00:00"
+      // timer.innerHTML = "00:00 / 00:00"
+      currentTimeDiv.innerHTML ="00:00"
+      durationDiv.innerHTML = "00:00"
     }
   });
 }
@@ -396,8 +406,8 @@ async function sikBarUpdate() {
 async function volumeContolor() {
   let volumeIcone = document.querySelector("#volume-icon");
   let volumeSlider = document.querySelector("#volume-slider");
-  let currentVolume = 0.5;
-  currentAudio.volume = 0.5;
+  let currentVolume = 1;
+  currentAudio.volume = 1;
 
   volumeIcone.addEventListener("click", () => {
     if (volumeIcone.getAttribute("src") === "Resourse/image/volume.svg") {
@@ -420,7 +430,9 @@ async function volumeContolor() {
 
 async function previousNext() {
   previous.addEventListener("click", () => {
-    let songIndex = asideCurrentSongList.indexOf(currentAudio.src);
+    // let songIndex = asideCurrentSongList.indexOf(currentAudio.src);
+    let currentFile = currentAudio.src.split("/").pop();
+    let songIndex = asideCurrentSongList.findIndex(path => path.endsWith(currentFile));
     if (songIndex > 0) {
       let track = asideCurrentSongList[songIndex - 1];
       songsid = document.querySelectorAll(`[data-track="${track}"] .aside-play-pause img`);
@@ -429,7 +441,9 @@ async function previousNext() {
   });
 
   next.addEventListener("click", () => {
-    let songIndex = asideCurrentSongList.indexOf(currentAudio.src);
+    // let songIndex = asideCurrentSongList.indexOf(currentAudio.src);
+    let currentFile = currentAudio.src.split("/").pop();
+    let songIndex = asideCurrentSongList.findIndex(path => path.endsWith(currentFile));
     if (songIndex < asideCurrentSongList.length - 1) {
       let track = asideCurrentSongList[songIndex + 1];
       songsid = document.querySelectorAll(`[data-track="${track}"] .aside-play-pause img`);
@@ -513,10 +527,10 @@ async function main() {
   playSong();
   section3PlaySong();
   musicPlayer();
+  previousNext();
   timeUpdate();
   sikBarUpdate();
   volumeContolor();
-  previousNext();
 }
 
 
