@@ -18,7 +18,7 @@ let next = document.querySelector("#next");
 var asideHeader = document.querySelector("#aside-header h1");
 
 async function fetchAudioFiles() {
-  const response = await fetch("http://127.0.0.1:5500/Resourse/audio/");
+  const response = await fetch("/Resourse/audio/");
   const html = await response.text();
   // console.log(html);
   const div = document.createElement("div");
